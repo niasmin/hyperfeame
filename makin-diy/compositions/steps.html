@@ -1,0 +1,150 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Kanit";
+      font-weight: 800;
+      src: url("assets/fonts/kanit-thai-800-normal.woff2") format("woff2");
+      unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+    }
+    @font-face {
+      font-family: "Kanit";
+      font-weight: 800;
+      src: url("assets/fonts/kanit-latin-800-normal.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+2000-206F;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Kanit", sans-serif;
+      font-weight: 800;
+      --red: #c00000;
+      --mustard: #ffd45a;
+      --cream: #fff6dc;
+    }
+    /* Lettering in the logo's own style: red fill inside a thick mustard outline */
+    .brandtype {
+      color: var(--red);
+      -webkit-text-stroke: 16px var(--mustard);
+      paint-order: stroke fill;
+      line-height: 1.25;
+      white-space: nowrap;
+      filter: drop-shadow(0 10px 0 rgba(0, 0, 0, 0.28));
+    }
+    .step {
+      position: absolute;
+      inset: 0;
+    }
+    .disc {
+      position: absolute;
+      left: 110px;
+      top: 250px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 10px solid var(--mustard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.28);
+    }
+    .disc span {
+      font-size: 104px;
+      line-height: 1;
+      color: var(--mustard);
+      margin-top: -6px;
+    }
+    .label {
+      position: absolute;
+      left: 110px;
+      top: 420px;
+      font-size: 104px;
+    }
+    .act-wrap {
+      position: absolute;
+      inset: 0;
+    }
+    .act {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1120px;
+      text-align: center;
+      font-size: 92px;
+      line-height: 1.25;
+      color: var(--cream);
+      -webkit-text-stroke: 14px var(--red);
+      paint-order: stroke fill;
+      filter: drop-shadow(0 8px 0 rgba(0, 0, 0, 0.3));
+    }
+  </style>
+
+  <div id="root" data-composition-id="steps" data-width="1080" data-height="1920"
+    data-composition-variables='[{"id":"step1","type":"string","label":"Step 1","default":"เลือกหม้อ"},{"id":"step2","type":"string","label":"Step 2","default":"ท็อปปิ้งตามใจ"},{"id":"step3","type":"string","label":"Step 3","default":"ผักสดเลือกเอง"},{"id":"step4","type":"string","label":"Step 4","default":"สั่งที่แท็บเล็ต"},{"id":"step5","type":"string","label":"Step 5","default":"ต้มเอง!"},{"id":"act1","type":"string","label":"Cooking word 1","default":"เติมน้ำ"},{"id":"act2","type":"string","label":"Cooking word 2","default":"ใส่เส้น"},{"id":"act3","type":"string","label":"Cooking word 3","default":"ตอกไข่"},{"id":"act4","type":"string","label":"Cooking word 4","default":"โรยผงปรุง"},{"id":"act5","type":"string","label":"Cooking word 5","default":"คนเลย!"}]'>
+    <div id="step-1" class="clip step" data-start="0.2" data-duration="1.75" data-track-index="0">
+      <div id="step-1-disc" class="disc"><span>1</span></div>
+      <div id="step-1-label" class="brandtype label" data-var-text="step1">เลือกหม้อ</div>
+    </div>
+    <div id="step-2" class="clip step" data-start="2.1" data-duration="2.85" data-track-index="1">
+      <div id="step-2-disc" class="disc"><span>2</span></div>
+      <div id="step-2-label" class="brandtype label" data-var-text="step2">ท็อปปิ้งตามใจ</div>
+    </div>
+    <div id="step-3" class="clip step" data-start="5.05" data-duration="1.9" data-track-index="2">
+      <div id="step-3-disc" class="disc"><span>3</span></div>
+      <div id="step-3-label" class="brandtype label" data-var-text="step3">ผักสดเลือกเอง</div>
+    </div>
+    <div id="step-4" class="clip step" data-start="7.05" data-duration="1.7" data-track-index="0">
+      <div id="step-4-disc" class="disc"><span>4</span></div>
+      <div id="step-4-label" class="brandtype label" data-var-text="step4">สั่งที่แท็บเล็ต</div>
+    </div>
+    <div id="step-5" class="clip step" data-start="8.85" data-duration="7.55" data-track-index="1">
+      <div id="step-5-disc" class="disc"><span>5</span></div>
+      <div id="step-5-label" class="brandtype label" data-var-text="step5">ต้มเอง!</div>
+    </div>
+    <div id="act-1" class="clip act-wrap" data-start="8.8" data-duration="1.0" data-track-index="3">
+      <div id="act-1-text" class="act" data-var-text="act1">เติมน้ำ</div>
+    </div>
+    <div id="act-2" class="clip act-wrap" data-start="9.8" data-duration="1.33" data-track-index="4">
+      <div id="act-2-text" class="act" data-var-text="act2">ใส่เส้น</div>
+    </div>
+    <div id="act-3" class="clip act-wrap" data-start="11.13" data-duration="2.0" data-track-index="3">
+      <div id="act-3-text" class="act" data-var-text="act3">ตอกไข่</div>
+    </div>
+    <div id="act-4" class="clip act-wrap" data-start="13.13" data-duration="2.0" data-track-index="4">
+      <div id="act-4-text" class="act" data-var-text="act4">โรยผงปรุง</div>
+    </div>
+    <div id="act-5" class="clip act-wrap" data-start="15.13" data-duration="1.3" data-track-index="3">
+      <div id="act-5-text" class="act" data-var-text="act5">คนเลย!</div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#step-1-disc", { scale: 0, rotation: -24 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, 0.2);
+    tl.fromTo("#step-1-label", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 0.32);
+    tl.to(["#step-1-disc", "#step-1-label"], { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" }, 1.78);
+    tl.fromTo("#step-2-disc", { scale: 0, rotation: 24 }, { scale: 1, rotation: 4, duration: 0.4, ease: "back.out(2.2)" }, 2.1);
+    tl.fromTo("#step-2-label", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 2.22);
+    tl.to(["#step-2-disc", "#step-2-label"], { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" }, 4.78);
+    tl.fromTo("#step-3-disc", { scale: 0, rotation: -24 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, 5.05);
+    tl.fromTo("#step-3-label", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 5.17);
+    tl.to(["#step-3-disc", "#step-3-label"], { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" }, 6.78);
+    tl.fromTo("#step-4-disc", { scale: 0, rotation: 24 }, { scale: 1, rotation: 4, duration: 0.4, ease: "back.out(2.2)" }, 7.05);
+    tl.fromTo("#step-4-label", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 7.17);
+    tl.to(["#step-4-disc", "#step-4-label"], { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" }, 8.58);
+    tl.fromTo("#step-5-disc", { scale: 0, rotation: -24 }, { scale: 1, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, 8.85);
+    tl.fromTo("#step-5-label", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 8.97);
+    tl.to(["#step-5-disc", "#step-5-label"], { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in" }, 16.20);
+    tl.fromTo("#act-1-text", { opacity: 0, scale: 1.3, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "expo.out" }, 8.85);
+    tl.to("#act-1-text", { opacity: 0, filter: "blur(6px)", duration: 0.1, ease: "power2.in" }, 9.68);
+    tl.fromTo("#act-2-text", { opacity: 0, scale: 1.3, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "expo.out" }, 9.85);
+    tl.to("#act-2-text", { opacity: 0, filter: "blur(6px)", duration: 0.1, ease: "power2.in" }, 11.01);
+    tl.fromTo("#act-3-text", { opacity: 0, scale: 1.3, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "expo.out" }, 11.18);
+    tl.to("#act-3-text", { opacity: 0, filter: "blur(6px)", duration: 0.1, ease: "power2.in" }, 13.01);
+    tl.fromTo("#act-4-text", { opacity: 0, scale: 1.3, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "expo.out" }, 13.18);
+    tl.to("#act-4-text", { opacity: 0, filter: "blur(6px)", duration: 0.1, ease: "power2.in" }, 15.01);
+    tl.fromTo("#act-5-text", { opacity: 0, scale: 1.3, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.16, ease: "expo.out" }, 15.18);
+    tl.to("#act-5-text", { opacity: 0, filter: "blur(6px)", duration: 0.12, ease: "power2.in" }, 16.27);
+    window.__timelines["steps"] = tl;
+  </script>
+</template>
