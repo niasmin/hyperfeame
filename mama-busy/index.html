@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #cam {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 42%;
+      }
+      #cam video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="11.3"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- Camera: punch-in during the slow-motion beat is a scale on this wrapper -->
+      <div id="cam" data-layout-ignore>
+        <!-- 1x: arrival, the counter already busy -->
+        <video
+          id="shot-a"
+          class="clip"
+          src="assets/video/shop.mp4"
+          playsinline
+          data-has-audio="true"
+          data-start="0"
+          data-duration="2.5"
+          data-media-start="0"
+          data-track-index="0"
+          style="z-index: 1"
+        ></video>
+        <!-- 0.5x: the peak, everyone reaching for packs -->
+        <video
+          id="shot-b"
+          class="clip"
+          src="assets/video/shop.mp4"
+          playsinline
+          data-has-audio="true"
+          data-start="2.5"
+          data-duration="3"
+          data-media-start="2.5"
+          data-playback-rate="0.5"
+          data-volume="0.7"
+          data-track-index="0"
+          style="z-index: 2"
+        ></video>
+        <!-- 1x: back to speed, cooking at the counter -->
+        <video
+          id="shot-c"
+          class="clip"
+          src="assets/video/shop.mp4"
+          playsinline
+          data-has-audio="true"
+          data-start="5.5"
+          data-duration="5.8"
+          data-media-start="4"
+          data-track-index="0"
+          style="z-index: 3"
+        ></video>
+      </div>
+
+      <div
+        id="texts"
+        data-composition-id="texts"
+        data-composition-src="compositions/texts.html"
+        data-start="0"
+        data-duration="11.3"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 10"
+      ></div>
+
+      <audio
+        id="sfx-pop-hook"
+        class="clip"
+        src=".media/audio/sfx/sfx_001.mp3"
+        data-start="0.21"
+        data-duration="0.72"
+        data-track-index="2"
+        data-volume="0.8"
+      ></audio>
+      <audio
+        id="sfx-whoosh"
+        class="clip"
+        src=".media/audio/sfx/sfx_002.mp3"
+        data-start="2.37"
+        data-duration="0.57"
+        data-track-index="3"
+        data-volume="0.8"
+      ></audio>
+      <audio
+        id="sfx-pop-end"
+        class="clip"
+        src=".media/audio/sfx/sfx_001.mp3"
+        data-start="8.81"
+        data-duration="0.72"
+        data-track-index="2"
+        data-volume="0.8"
+      ></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Punch into the crowd as the slow motion starts, ease back out as speed returns
+      tl.fromTo("#cam", { scale: 1 }, { scale: 1.2, duration: 0.45, ease: "expo.out" }, 2.5);
+      tl.to("#cam", { scale: 1, duration: 0.4, ease: "power3.inOut" }, 5.3);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
