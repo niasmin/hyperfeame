@@ -1,0 +1,129 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Kanit";
+      font-weight: 800;
+      src: url("assets/fonts/kanit-thai-800-normal.woff2") format("woff2");
+      unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+    }
+    @font-face {
+      font-family: "Kanit";
+      font-weight: 800;
+      src: url("assets/fonts/kanit-latin-800-normal.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+2000-206F;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Kanit", sans-serif;
+      font-weight: 800;
+      --red: #c00000;
+      --mustard: #ffd45a;
+      --cream: #fff6dc;
+    }
+    /* Lettering in the logo's own style: red fill inside a thick mustard outline */
+    .brandtype {
+      color: var(--red);
+      -webkit-text-stroke: 16px var(--mustard);
+      paint-order: stroke fill;
+      line-height: 1.25;
+      white-space: nowrap;
+      filter: drop-shadow(0 10px 0 rgba(0, 0, 0, 0.28));
+    }
+
+    #subs {
+      position: absolute;
+      inset: 0;
+    }
+    /* One subtitle visible at a time, centred across the full width, about 650 px above the bottom */
+    .sub {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1180px;
+      text-align: center;
+      opacity: 0;
+      overflow: visible;
+    }
+    .sub span {
+      font-size: 78px;
+      line-height: 1.3;
+      white-space: nowrap;
+      color: var(--cream);
+      -webkit-text-stroke: 14px var(--red);
+      paint-order: stroke fill;
+      filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.35));
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920"
+    data-composition-variables='[{"id": "sub1", "type": "string", "label": "Subtitle 1 (0.3s)", "default": "ต้มน้ำให้เดือด"}, {"id": "sub2", "type": "string", "label": "Subtitle 2 (5.0s)", "default": "ใส่เส้นบูลดัก ต้มให้นุ่ม"}, {"id": "sub3", "type": "string", "label": "Subtitle 3 (10.6s)", "default": "ใส่หมูสไลด์ลงกระทะ"}, {"id": "sub4", "type": "string", "label": "Subtitle 4 (16.0s)", "default": "ผัดจนหมูสุกหอมๆ"}, {"id": "sub5", "type": "string", "label": "Subtitle 5 (25.8s)", "default": "โรยเครื่องปรุงในซอง"}, {"id": "sub6", "type": "string", "label": "Subtitle 6 (30.0s)", "default": "บีบซอสบูลดักลงไป"}, {"id": "sub7", "type": "string", "label": "Subtitle 7 (35.6s)", "default": "คลุกให้เข้ากัน"}, {"id": "sub8", "type": "string", "label": "Subtitle 8 (41.0s)", "default": "วางขนมปังลงกระทะ"}, {"id": "sub9", "type": "string", "label": "Subtitle 9 (45.2s)", "default": "ปิ้งให้เหลืองกรอบ"}, {"id": "sub10", "type": "string", "label": "Subtitle 10 (51.4s)", "default": "รองด้วยผักสด"}, {"id": "sub11", "type": "string", "label": "Subtitle 11 (54.2s)", "default": "วางเส้นบูลดักเต็มๆ"}, {"id": "sub12", "type": "string", "label": "Subtitle 12 (59.0s)", "default": "ท็อปด้วยหมูสไลด์"}, {"id": "sub13", "type": "string", "label": "Subtitle 13 (65.6s)", "default": "ตามด้วยชีส"}, {"id": "sub14", "type": "string", "label": "Subtitle 14 (68.2s)", "default": "ปิดด้วยขนมปัง"}, {"id": "sub15", "type": "string", "label": "Subtitle 15 (71.6s)", "default": "เบอร์เกอร์บูลดัก พร้อมเสิร์ฟ!"}]'>
+    <div id="subs" class="clip" data-start="0" data-duration="75.9" data-layout-allow-overlap>
+    <div id="sub-01" class="sub"><span id="sub-01-text" data-var-text="sub1">ต้มน้ำให้เดือด</span></div>
+    <div id="sub-02" class="sub"><span id="sub-02-text" data-var-text="sub2">ใส่เส้นบูลดัก ต้มให้นุ่ม</span></div>
+    <div id="sub-03" class="sub"><span id="sub-03-text" data-var-text="sub3">ใส่หมูสไลด์ลงกระทะ</span></div>
+    <div id="sub-04" class="sub"><span id="sub-04-text" data-var-text="sub4">ผัดจนหมูสุกหอมๆ</span></div>
+    <div id="sub-05" class="sub"><span id="sub-05-text" data-var-text="sub5">โรยเครื่องปรุงในซอง</span></div>
+    <div id="sub-06" class="sub"><span id="sub-06-text" data-var-text="sub6">บีบซอสบูลดักลงไป</span></div>
+    <div id="sub-07" class="sub"><span id="sub-07-text" data-var-text="sub7">คลุกให้เข้ากัน</span></div>
+    <div id="sub-08" class="sub"><span id="sub-08-text" data-var-text="sub8">วางขนมปังลงกระทะ</span></div>
+    <div id="sub-09" class="sub"><span id="sub-09-text" data-var-text="sub9">ปิ้งให้เหลืองกรอบ</span></div>
+    <div id="sub-10" class="sub"><span id="sub-10-text" data-var-text="sub10">รองด้วยผักสด</span></div>
+    <div id="sub-11" class="sub"><span id="sub-11-text" data-var-text="sub11">วางเส้นบูลดักเต็มๆ</span></div>
+    <div id="sub-12" class="sub"><span id="sub-12-text" data-var-text="sub12">ท็อปด้วยหมูสไลด์</span></div>
+    <div id="sub-13" class="sub"><span id="sub-13-text" data-var-text="sub13">ตามด้วยชีส</span></div>
+    <div id="sub-14" class="sub"><span id="sub-14-text" data-var-text="sub14">ปิดด้วยขนมปัง</span></div>
+    <div id="sub-15" class="sub"><span id="sub-15-text" data-var-text="sub15">เบอร์เกอร์บูลดัก พร้อมเสิร์ฟ!</span></div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sub-01", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 0.3);
+    tl.to("#sub-01", { opacity: 0, duration: 0.12, ease: "power2.in" }, 4.88);
+    tl.set("#sub-01", { opacity: 0, visibility: "hidden" }, 5.0);
+    tl.fromTo("#sub-02", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 5.0);
+    tl.to("#sub-02", { opacity: 0, duration: 0.12, ease: "power2.in" }, 10.18);
+    tl.set("#sub-02", { opacity: 0, visibility: "hidden" }, 10.3);
+    tl.fromTo("#sub-03", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 10.6);
+    tl.to("#sub-03", { opacity: 0, duration: 0.12, ease: "power2.in" }, 15.88);
+    tl.set("#sub-03", { opacity: 0, visibility: "hidden" }, 16.0);
+    tl.fromTo("#sub-04", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 16.0);
+    tl.to("#sub-04", { opacity: 0, duration: 0.12, ease: "power2.in" }, 24.48);
+    tl.set("#sub-04", { opacity: 0, visibility: "hidden" }, 24.6);
+    tl.fromTo("#sub-05", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 25.8);
+    tl.to("#sub-05", { opacity: 0, duration: 0.12, ease: "power2.in" }, 29.88);
+    tl.set("#sub-05", { opacity: 0, visibility: "hidden" }, 30.0);
+    tl.fromTo("#sub-06", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 30.0);
+    tl.to("#sub-06", { opacity: 0, duration: 0.12, ease: "power2.in" }, 35.48);
+    tl.set("#sub-06", { opacity: 0, visibility: "hidden" }, 35.6);
+    tl.fromTo("#sub-07", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 35.6);
+    tl.to("#sub-07", { opacity: 0, duration: 0.12, ease: "power2.in" }, 40.68);
+    tl.set("#sub-07", { opacity: 0, visibility: "hidden" }, 40.8);
+    tl.fromTo("#sub-08", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 41.0);
+    tl.to("#sub-08", { opacity: 0, duration: 0.12, ease: "power2.in" }, 45.08);
+    tl.set("#sub-08", { opacity: 0, visibility: "hidden" }, 45.2);
+    tl.fromTo("#sub-09", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 45.2);
+    tl.to("#sub-09", { opacity: 0, duration: 0.12, ease: "power2.in" }, 50.88);
+    tl.set("#sub-09", { opacity: 0, visibility: "hidden" }, 51.0);
+    tl.fromTo("#sub-10", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 51.4);
+    tl.to("#sub-10", { opacity: 0, duration: 0.12, ease: "power2.in" }, 54.08);
+    tl.set("#sub-10", { opacity: 0, visibility: "hidden" }, 54.2);
+    tl.fromTo("#sub-11", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 54.2);
+    tl.to("#sub-11", { opacity: 0, duration: 0.12, ease: "power2.in" }, 58.88);
+    tl.set("#sub-11", { opacity: 0, visibility: "hidden" }, 59.0);
+    tl.fromTo("#sub-12", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 59.0);
+    tl.to("#sub-12", { opacity: 0, duration: 0.12, ease: "power2.in" }, 65.48);
+    tl.set("#sub-12", { opacity: 0, visibility: "hidden" }, 65.6);
+    tl.fromTo("#sub-13", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 65.6);
+    tl.to("#sub-13", { opacity: 0, duration: 0.12, ease: "power2.in" }, 68.08);
+    tl.set("#sub-13", { opacity: 0, visibility: "hidden" }, 68.2);
+    tl.fromTo("#sub-14", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 68.2);
+    tl.to("#sub-14", { opacity: 0, duration: 0.12, ease: "power2.in" }, 71.48);
+    tl.set("#sub-14", { opacity: 0, visibility: "hidden" }, 71.6);
+    tl.fromTo("#sub-15", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 71.6);
+    tl.to("#sub-15", { opacity: 0, duration: 0.12, ease: "power2.in" }, 75.68);
+    tl.set("#sub-15", { opacity: 0, visibility: "hidden" }, 75.8);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>
